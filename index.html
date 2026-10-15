@@ -1,33 +1,683 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f7f1e9" />
   <meta name="description" content="2026 大阪五天四夜自由行｜日系旅行手帳、每日行程、地圖導航與購物清單。" />
+
   <title>大阪慢旅手帳｜2026.11.05—11.09</title>
+
+  <!-- 網站圖示 -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- CSS 樣式 -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- JavaScript 功能 -->
   <script src="script.js" defer></script>
 </head>
+
 <body>
+
+  <!-- ==============================
+         背景紙張紋理
+    ============================== -->
   <div class="paper-texture" aria-hidden="true"></div>
+
+
+  <!-- ==============================
+         網站頂部導覽列
+    ============================== -->
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="大阪慢旅手帳首頁"><span class="brand-icon">✿</span><span>OSAKA <small>旅の手帖</small></span></a>
-    <div class="header-actions"><span class="header-date">NOV 05 — 09, 2026</span><button id="themeToggle" type="button" class="icon-button" aria-label="切換深色模式" title="明亮／深色模式">☾</button></div>
+
+    <!-- 網站 Logo -->
+    <a class="brand" href="#home" aria-label="大阪慢旅手帳首頁">
+      <span class="brand-icon">✿</span>
+      <span>
+        OSAKA
+        <small>旅の手帖</small>
+      </span>
+    </a>
+
+    <!-- 旅行日期與主題切換 -->
+    <div class="header-actions">
+
+      <span class="header-date">
+        NOV 05 — 09, 2026
+      </span>
+
+      <button id="themeToggle" type="button" class="icon-button" aria-label="切換深色模式" title="明亮／深色模式">
+        ☾
+      </button>
+
+    </div>
+
   </header>
+
+
+  <!-- ==============================
+         網站主要內容
+    ============================== -->
   <main id="home" class="shell">
+
+
+    <!-- ==========================
+             01. 首頁主視覺
+        ========================== -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy"><p class="eyebrow">JAPAN TRAVEL JOURNAL <span>・</span> 2026 AUTUMN</p><div class="hero-kicker">五天四夜 · 大阪自由行</div><h1 id="hero-title">大阪，<br><em>慢慢逛。</em></h1><p class="hero-subtitle">從道頓堀的熱鬧燈火，到梅田的百貨街景。<br>把喜歡的店、想吃的美食，收藏進這趟旅程。</p><div class="hero-buttons"><a href="#itinerary" class="btn btn-main">開始看行程 <span>↗</span></a><a href="#shopping" class="btn btn-ghost">我的購物清單 <span>↗</span></a></div><div class="hero-stats"><div><b>05</b><span>DAYS</span></div><i></i><div><b>04</b><span>NIGHTS</span></div><i></i><div><b>OSAKA</b><span>JAPAN</span></div></div></div>
-      <div class="hero-art" aria-hidden="true"><div class="art-circle"></div><div class="art-sun"></div><div class="art-cloud art-cloud-1"></div><div class="art-cloud art-cloud-2"></div><div class="art-tower"><div class="tower-top"></div><div class="tower-body"><span></span><span></span><span></span><span></span></div><div class="tower-base"></div></div><div class="art-building building-a"></div><div class="art-building building-b"></div><div class="art-building building-c"></div><div class="art-hill"></div><div class="art-seal">大阪<br><small>おおさか</small></div><div class="art-label">旅は、ここから。</div></div>
-      <div class="hero-bottom">JOURNAL NO. 001 <span>✦</span> MADE FOR YOUR OSAKA DAYS</div>
+
+      <!-- 左側文字內容 -->
+      <div class="hero-copy">
+
+        <p class="eyebrow">
+          JAPAN TRAVEL JOURNAL
+          <span>・</span>
+          2026 AUTUMN
+        </p>
+
+        <div class="hero-kicker">
+          五天四夜 · 大阪自由行
+        </div>
+
+        <h1 id="hero-title">
+          大阪，<br>
+          <em>慢慢逛。</em>
+        </h1>
+
+        <p class="hero-subtitle">
+          從道頓堀的熱鬧燈火，到梅田的百貨街景。<br>
+          把喜歡的店、想吃的美食，收藏進這趟旅程。
+        </p>
+
+        <!-- 首頁快速按鈕 -->
+        <div class="hero-buttons">
+
+          <a href="#itinerary" class="btn btn-main">
+            開始看行程
+            <span>↗</span>
+          </a>
+
+          <a href="#shopping" class="btn btn-ghost">
+            我的購物清單
+            <span>↗</span>
+          </a>
+
+        </div>
+
+        <!-- 旅行統計資訊 -->
+        <div class="hero-stats">
+
+          <div>
+            <b>05</b>
+            <span>DAYS</span>
+          </div>
+
+          <i></i>
+
+          <div>
+            <b>04</b>
+            <span>NIGHTS</span>
+          </div>
+
+          <i></i>
+
+          <div>
+            <b>OSAKA</b>
+            <span>JAPAN</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 右側大阪插畫 -->
+      <div class="hero-art" aria-hidden="true">
+
+        <div class="art-circle"></div>
+        <div class="art-sun"></div>
+
+        <!-- 雲朵 -->
+        <div class="art-cloud art-cloud-1"></div>
+        <div class="art-cloud art-cloud-2"></div>
+
+        <!-- 大阪通天閣 -->
+        <div class="art-tower">
+
+          <div class="tower-top"></div>
+
+          <div class="tower-body">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="tower-base"></div>
+
+        </div>
+
+        <!-- 城市建築 -->
+        <div class="art-building building-a"></div>
+        <div class="art-building building-b"></div>
+        <div class="art-building building-c"></div>
+
+        <!-- 背景裝飾 -->
+        <div class="art-hill"></div>
+
+        <!-- 大阪印章 -->
+        <div class="art-seal">
+          大阪<br>
+          <small>おおさか</small>
+        </div>
+
+        <div class="art-label">
+          旅は、ここから。
+        </div>
+
+      </div>
+
+
+      <!-- 首頁底部裝飾文字 -->
+      <div class="hero-bottom">
+        JOURNAL NO. 001
+        <span>✦</span>
+        MADE FOR YOUR OSAKA DAYS
+      </div>
+
     </section>
-    <div class="notice"><span>✦</span><p>旅遊小提醒：營業時間、優惠、飯店免費服務、列車班次及航班時間可能調整，請於出發前向官方確認。原行程時間與地點依你提供的版本保留。</p></div>
-    <section id="overview" class="section overview-section"><div class="section-heading"><div><p class="section-label">01 / BEFORE THE TRIP</p><h2>旅行小檔案<span class="h2-dot">。</span></h2></div><p class="section-aside">重要資訊都放在這裡，旅途中隨時查看。</p></div><div class="overview-grid"><article class="info-card"><div class="info-icon">✈</div><p class="info-heading">FLIGHT / 航班</p><div class="flight-row"><span>去程 · 11/05 (四)</span><strong>MM024</strong></div><p>13:10 抵達關西機場 T2</p><div class="card-divider"></div><div class="flight-row"><span>回程 · 11/09 (一)</span><strong>MM027</strong></div><p>15:25 起飛 → 17:55 抵達桃園</p></article><article class="info-card"><div class="info-icon">⌂</div><p class="info-heading">STAY / 住宿</p><h3>大阪逸之彩飯店日本橋</h3><p>Osaka Hinode Hotel Nipponbashi</p><div class="card-divider"></div><p>11/05 入住 · 11/09 退房</p><a class="mini-link" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi">飯店地圖 ↗</a></article><article class="info-card"><div class="info-icon">▣</div><p class="info-heading">TRANSIT / 交通</p><h3>南海電鐵 Rapi:t</h3><p>關西機場 T1 ↔ 新今宮站</p><div class="card-divider"></div><p>機場 T2 ↔ T1 使用航廈接駁巴士</p><a class="mini-link" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=Shin-Imamiya+Station">新今宮站地圖 ↗</a></article></div></section>
-    <section id="itinerary" class="section itinerary-section"><div class="section-heading"><div><p class="section-label">02 / DAILY PLAN</p><h2>每日行程<span class="h2-dot">。</span></h2></div><p class="section-aside">點選日期切換行程，完成一站就打個勾。</p></div><div class="date-tabs" id="dayTabs" role="tablist" aria-label="選擇行程日期"></div><div class="day-banner"><div><p id="dayEnglish" class="day-english">DAY 01 · THURSDAY</p><h3 id="dayTitle"></h3><p id="daySummary"></p></div><div class="day-stamp" id="dayStamp"></div></div><div class="progress-panel"><div class="progress-copy"><span class="progress-icon">✿</span><span><strong>今日探索進度</strong><small id="progressText">0 / 0 已完成</small></span></div><div class="progress-track" role="progressbar" aria-label="當日行程完成進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack"><span id="progressFill"></span></div><span id="progressPct" class="progress-percent">0%</span></div><div id="timeline" class="timeline"></div><div class="day-footer"><span>✦</span> Have a lovely day in Osaka. <span>✦</span></div></section>
-    <section id="shopping" class="section shopping-section"><div class="section-heading"><div><p class="section-label">03 / SHOPPING NOTES</p><h2>我的購物清單<span class="h2-dot">。</span></h2></div><p class="section-aside">在手機上記下想買的東西，不怕漏買。</p></div><div class="shopping-layout"><div class="shopping-card"><div class="shopping-top"><div><p class="shopping-top-label">MY LITTLE WISHLIST</p><h3>待買小物 <span>♡</span></h3></div><span id="shoppingCounter" class="shopping-count">0 / 0</span></div><form id="shoppingForm" class="shopping-form"><label class="sr-only" for="shoppingInput">想買的東西</label><input id="shoppingInput" maxlength="90" required autocomplete="off" placeholder="例如：日本限定零食、藥妝..." /><button type="submit" class="btn btn-main">＋ 新增</button></form><div id="shoppingList" class="shopping-list"></div><div class="shopping-bottom"><span>資料僅保存在目前裝置的瀏覽器</span><button type="button" id="clearChecked" class="text-button">清除已買項目</button></div></div><aside class="quote-card"><span class="quote-flower">✿</span><p class="quote-jp">お買い物は、<br>旅の楽しみ。</p><p>每一件小小的戰利品，<br>都是旅行的紀念。</p><div class="quote-decoration">OSAKA · 2026</div></aside></div></section>
-    <footer class="footer"><div class="footer-flower">✿</div><p>大阪慢旅手帳 <span>·</span> 2026.11.05 — 11.09</p><small>保存喜歡的風景，也收藏沿途的日常。</small><a href="#home">BACK TO TOP ↑</a></footer>
+
+
+    <!-- ==========================
+             旅遊注意事項
+        ========================== -->
+    <div class="notice">
+
+      <span>✦</span>
+
+      <p>
+        旅遊小提醒：營業時間、優惠、飯店免費服務、
+        列車班次及航班時間可能調整，請於出發前向官方確認。
+        原行程時間與地點依你提供的版本保留。
+      </p>
+
+    </div>
+
+
+    <!-- ==========================
+             02. 旅行基本資訊
+        ========================== -->
+    <section id="overview" class="section overview-section">
+
+      <!-- 區塊標題 -->
+      <div class="section-heading">
+
+        <div>
+          <p class="section-label">
+            01 / BEFORE THE TRIP
+          </p>
+
+          <h2>
+            旅行小檔案<span class="h2-dot">。</span>
+          </h2>
+        </div>
+
+        <p class="section-aside">
+          重要資訊都放在這裡，旅途中隨時查看。
+        </p>
+
+      </div>
+
+
+      <!-- 資訊卡片容器 -->
+      <div class="overview-grid">
+
+
+        <!-- 航班資訊 -->
+        <article class="info-card">
+
+          <div class="info-icon">✈</div>
+
+          <p class="info-heading">
+            FLIGHT / 航班
+          </p>
+
+          <!-- 去程 -->
+          <div class="flight-row">
+            <span>去程 · 11/05 (四)</span>
+            <strong>MM024</strong>
+          </div>
+
+          <p>09:30 起飛 → 13:10 抵達關西機場(KIX)</p>
+
+          <div class="card-divider"></div>
+
+          <!-- 回程 -->
+          <div class="flight-row">
+            <span>回程 · 11/09 (一)</span>
+            <strong>MM027</strong>
+          </div>
+
+          <p>15:15 起飛 → 17:30 抵達桃園機場(TPE)</p>
+
+        </article>
+
+
+        <!-- 住宿資訊 -->
+        <article class="info-card">
+
+          <div class="info-icon">⌂</div>
+
+          <p class="info-heading">
+            STAY / 住宿
+          </p>
+
+          <h3>大阪逸之彩飯店日本橋</h3>
+
+          <p>Osaka Hinode Hotel Nipponbashi</p>
+
+          <div class="card-divider"></div>
+
+          <p>11/05 入住 · 11/09 退房</p>
+
+          <a class="mini-link" target="_blank" rel="noopener noreferrer"
+            href="https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi">
+            飯店地圖 ↗
+          </a>
+
+        </article>
+
+
+        <!-- 交通資訊 -->
+        <article class="info-card">
+
+          <div class="info-icon">▣</div>
+
+          <p class="info-heading">
+            TRANSIT / 交通
+          </p>
+
+          <h3>INNN 共乘接送・已安排</h3>
+
+          <p>11/05 關西機場 T2 → 大阪逸之彩飯店</p>
+          <p>11/09 大阪逸之彩飯店 → 關西機場 T2</p>
+
+          <div class="card-divider"></div>
+
+          <p>優惠參考 ¥1,650／人，含 1 件 32 吋及 1 件 20 吋行李。</p>
+          <a class="mini-link" href="#transfer">查看接送訂單、行李規則 ↗</a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================
+             03. 每日行程
+        ========================== -->
+
+    <!-- ==========================
+         機場接送專區
+    ========================== -->
+    <section id="transfer" class="section transfer-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">02 / AIRPORT TRANSFER</p>
+          <h2>機場接送<span class="h2-dot">。</span></h2>
+        </div>
+        <p class="section-aside">去回程均已安排 INNN 共乘接送，無須搭乘南海電鐵。</p>
+      </div>
+
+      <div class="transfer-notice">
+        <strong>接送皆已預訂</strong>
+        <span>去程：機場 → 飯店｜回程：飯店 → 機場。共乘接送，可能須依司機通知等候、集合及轉乘。</span>
+      </div>
+
+      <div class="transfer-grid">
+        <article class="transfer-card">
+          <div class="transfer-card-head">
+            <span class="transfer-badge">ARRIVAL · 11/05（四）</span>
+            <h3>關西機場 T2 → 逸之彩飯店</h3>
+          </div>
+          <div class="transfer-details">
+            <div><span>訂單登記用車時間</span><strong>13:20</strong></div>
+            <div><span>對應航班</span><strong>MM024</strong></div>
+            <div><span>訂單人數</span><strong>4 人</strong></div>
+            <div><span>訂單實付款</span><strong>¥5,940</strong></div>
+          </div>
+          <p class="transfer-subnote">訂單金額：¥11,160，優惠減免 ¥5,220。抵達機場後須通關提領行李，請依服務商通知確認實際上車時間及地點。</p>
+          <ol class="transfer-steps">
+            <li>提前依訂單填寫抵達時間與上車地點。</li>
+            <li>加入服務群組，取得車牌及司機資訊。</li>
+            <li>依指定地點準時搭乘支線小巴。</li>
+            <li>於中轉站由工作人員協助換乘主線大巴並搬運行李。</li>
+            <li>依司機指引抵達飯店或指定下車點。</li>
+          </ol>
+          <a class="location-link" href="https://maps.google.com/?q=KIX+Terminal+2" target="_blank" rel="noopener noreferrer">⌖ 關西機場第二航廈 ↗</a>
+        </article>
+
+        <article class="transfer-card">
+          <div class="transfer-card-head">
+            <span class="transfer-badge">DEPARTURE · 11/09（一）</span>
+            <h3>逸之彩飯店 → 關西機場 T2</h3>
+          </div>
+          <div class="transfer-details">
+            <div><span>訂單登記抵達機場時間</span><strong>12:00</strong></div>
+            <div><span>接送時段（訂單預告）</span><strong>10:00–10:50</strong></div>
+            <div><span>訂單人數</span><strong>5 人</strong></div>
+            <div><span>訂單實付款</span><strong>¥7,425</strong></div>
+          </div>
+          <p class="transfer-subnote">訂單金額：¥13,950，優惠減免 ¥6,525。預計出發當日 06:10 透過 App 通知接送時間與車輛資訊；請以最終通知為準。</p>
+          <ol class="transfer-steps">
+            <li>線上預訂時填寫航班號碼及飯店地址。</li>
+            <li>出發前至指定櫃台出示 QR Code 確認報到。</li>
+            <li>依工作人員引導登車並放置行李。</li>
+            <li>乘坐主線大巴前往中轉站（訂單圖示約 45 分鐘）。</li>
+            <li>轉乘支線小巴，專人協助搬運行李。</li>
+            <li>於關西機場指定航廈站點下車。</li>
+          </ol>
+          <a class="location-link" href="https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi" target="_blank" rel="noopener noreferrer">⌖ 逸之彩飯店 ↗</a>
+        </article>
+      </div>
+
+      <div class="luggage-box">
+        <div>
+          <p class="section-label">LUGGAGE / 行李方案</p>
+          <h3>¥1,650／人（優惠參考）</h3>
+          <p>每份方案含 <strong>1 件 32 吋大行李＋1 件 20 吋小行李</strong>。依你提供的計價方式，若要攜帶 <strong>2 件 32 吋＋2 件 20 吋</strong>，需購買兩份額度，合計 <strong>¥3,300</strong>。</p>
+        </div>
+        <div class="luggage-calculator">
+          <label for="luggageUnits">行李方案份數</label>
+          <select id="luggageUnits">
+            <option value="1">1 份：1 大＋1 小</option>
+            <option value="2">2 份：2 大＋2 小</option>
+            <option value="3">3 份：3 大＋3 小</option>
+            <option value="4">4 份：4 大＋4 小</option>
+            <option value="5">5 份：5 大＋5 小</option>
+          </select>
+          <div class="luggage-total"><span>方案參考合計</span><strong id="luggageTotal">¥1,650</strong></div>
+          <small>此計算僅依 ¥1,650／份推算，與上述訂單折扣後實付款不同；額外行李是否可帶，仍需由接送業者確認。</small>
+        </div>
+      </div>
+      <p class="transfer-warning">注意：去程航班原規劃 13:10 抵達，但接送訂單登記 13:20；時間間隔僅 10 分鐘。請與 INNN 確認集合時間是否考慮通關與領行李。接送過程若須轉乘，請確認第二航廈上下車及行李額度細節。</p>
+    </section>
+
+    <section id="itinerary" class="section itinerary-section">
+
+      <!-- 區塊標題 -->
+      <div class="section-heading">
+
+        <div>
+
+          <p class="section-label">
+            03 / DAILY PLAN
+          </p>
+
+          <h2>
+            每日行程<span class="h2-dot">。</span>
+          </h2>
+
+        </div>
+
+        <p class="section-aside">
+          點選日期切換行程，完成一站就打個勾。
+        </p>
+
+      </div>
+
+
+      <!-- 五天日期切換按鈕 -->
+      <!-- 內容由 script.js 動態產生 -->
+      <div class="date-tabs" id="dayTabs" role="tablist" aria-label="選擇行程日期"></div>
+
+
+      <!-- 當日行程標題 -->
+      <div class="day-banner">
+
+        <div>
+
+          <p id="dayEnglish" class="day-english">
+            DAY 01 · THURSDAY
+          </p>
+
+          <h3 id="dayTitle"></h3>
+
+          <p id="daySummary"></p>
+
+        </div>
+
+        <div class="day-stamp" id="dayStamp"></div>
+
+      </div>
+
+
+      <!-- 行程完成進度 -->
+      <div class="progress-panel">
+
+        <!-- 進度文字 -->
+        <div class="progress-copy">
+
+          <span class="progress-icon">✿</span>
+
+          <span>
+
+            <strong>今日探索進度</strong>
+
+            <small id="progressText">
+              0 / 0 已完成
+            </small>
+
+          </span>
+
+        </div>
+
+
+        <!-- 進度條 -->
+        <div class="progress-track" id="progressTrack" role="progressbar" aria-label="當日行程完成進度" aria-valuemin="0"
+          aria-valuemax="100" aria-valuenow="0">
+          <span id="progressFill"></span>
+        </div>
+
+
+        <!-- 百分比 -->
+        <span id="progressPct" class="progress-percent">
+          0%
+        </span>
+
+      </div>
+
+
+      <!-- 每日行程時間軸 -->
+      <!-- 內容由 script.js 動態產生 -->
+      <div id="timeline" class="timeline"></div>
+
+
+      <!-- 行程底部裝飾 -->
+      <div class="day-footer">
+        <span>✦</span>
+        Have a lovely day in Osaka.
+        <span>✦</span>
+      </div>
+
+    </section>
+
+
+    <!-- ==========================
+             04. 購物清單
+        ========================== -->
+    <section id="shopping" class="section shopping-section">
+
+      <!-- 區塊標題 -->
+      <div class="section-heading">
+
+        <div>
+
+          <p class="section-label">
+            04 / SHOPPING NOTES
+          </p>
+
+          <h2>
+            我的購物清單<span class="h2-dot">。</span>
+          </h2>
+
+        </div>
+
+        <p class="section-aside">
+          在手機上記下想買的東西，不怕漏買。
+        </p>
+
+      </div>
+
+
+      <!-- 購物清單排版 -->
+      <div class="shopping-layout">
+
+
+        <!-- 左側購物清單 -->
+        <div class="shopping-card">
+
+          <!-- 購物清單標題 -->
+          <div class="shopping-top">
+
+            <div>
+
+              <p class="shopping-top-label">
+                MY LITTLE WISHLIST
+              </p>
+
+              <h3>
+                待買小物 <span>♡</span>
+              </h3>
+
+            </div>
+
+            <span id="shoppingCounter" class="shopping-count">
+              0 / 0
+            </span>
+
+          </div>
+
+
+          <!-- 新增購物項目 -->
+          <form id="shoppingForm" class="shopping-form">
+
+            <label class="sr-only" for="shoppingInput">
+              想買的東西
+            </label>
+
+            <input id="shoppingInput" maxlength="90" required autocomplete="off" placeholder="例如：日本限定零食、藥妝..." />
+
+            <button type="submit" class="btn btn-main">
+              ＋ 新增
+            </button>
+
+          </form>
+
+
+          <!-- 購物項目清單 -->
+          <!-- 內容由 script.js 動態產生 -->
+          <div id="shoppingList" class="shopping-list"></div>
+
+
+          <!-- 購物清單底部 -->
+          <div class="shopping-bottom">
+
+            <span>
+              資料僅保存在目前裝置的瀏覽器
+            </span>
+
+            <button type="button" id="clearChecked" class="text-button">
+              清除已買項目
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- 右側日系裝飾卡片 -->
+        <aside class="quote-card">
+
+          <span class="quote-flower">✿</span>
+
+          <p class="quote-jp">
+            お買い物は、<br>
+            旅の楽しみ。
+          </p>
+
+          <p>
+            每一件小小的戰利品，<br>
+            都是旅行的紀念。
+          </p>
+
+          <div class="quote-decoration">
+            OSAKA · 2026
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================
+             05. 網站頁尾
+        ========================== -->
+    <footer class="footer">
+
+      <div class="footer-flower">✿</div>
+
+      <p>
+        大阪慢旅手帳
+        <span>·</span>
+        2026.11.05 — 11.09
+      </p>
+
+      <small>
+        保存喜歡的風景，也收藏沿途的日常。
+      </small>
+
+      <a href="#home">
+        BACK TO TOP ↑
+      </a>
+
+    </footer>
+
   </main>
-  <nav class="mobile-nav" aria-label="快速導覽"><a href="#home"><span>⌂</span>首頁</a><a href="#overview"><span>✈</span>資訊</a><a href="#itinerary"><span>▤</span>行程</a><a href="#shopping"><span>♡</span>購物</a></nav>
+
+
+  <!-- ==============================
+         手機版底部導覽列
+    ============================== -->
+  <nav class="mobile-nav" aria-label="快速導覽">
+
+    <a href="#home">
+      <span>⌂</span>
+      首頁
+    </a>
+
+    <a href="#overview">
+      <span>✈</span>
+      資訊
+    </a>
+
+    <a href="#itinerary">
+      <span>▤</span>
+      行程
+    </a>
+
+    <a href="#shopping">
+      <span>♡</span>
+      購物
+    </a>
+
+  </nav>
+
 </body>
+
 </html>

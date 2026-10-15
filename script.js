@@ -4,9 +4,9 @@ const map = (q) => `https://maps.google.com/?q=${q}`;
 const hotel = ['大阪逸之彩飯店日本橋',map('Osaka+Hinode+Hotel+Nipponbashi')];
 const DAYS = [
  {date:'2026-11-05',weekday:'THURSDAY',label:'週四',title:'入境直達・頂級黑毛和牛晚餐',summary:'百貨伴手禮 ➜ 大型超市大補貨',items:[
-  ['13:10 – 14:30','抵達大阪・機場入境','樂桃 MM024 抵達關西機場第二航廈（T2），搭接駁車至 T1、通關提領行李。',[['關西國際機場 第二航廈',map('KIX+Terminal+2')]],'交通'],
-  ['14:40 – 15:25','南海電鐵直達新今宮','搭乘南海電鐵特急 Rapi:t（或空港急行）直達「新今宮站」，出站步行前往飯店。',[['南海電鐵 新今宮站',map('Shin-Imamiya+Station')]],'交通'],
-  ['15:35 – 16:15','入住・借用隨身 Wi-Fi','辦理入住手續、至櫃檯登記借用免費隨身 Wi-Fi 機，將大件行李放至客房。',[hotel],'住宿'],
+  ['13:10 – 14:30','抵達大阪・機場入境','樂桃 MM024 抵達關西機場第二航廈（T2），通關並提領行李。已預訂 INNN 共乘接送（訂單填寫 13:20），請先確認集合時間與地點是否足夠通關。',[['關西國際機場 第二航廈',map('KIX+Terminal+2')]],'交通'],
+  ['依司機通知','INNN 共乘接送至飯店','已安排機場接送，不需搭乘南海電鐵；加入服務群組取得司機／車牌資訊，按通知搭乘支線小巴並於中轉站轉主線大巴，前往逸之彩飯店。',[['關西機場 第二航廈',map('KIX+Terminal+2')],hotel],'交通'],
+  ['抵達飯店後','入住・借用隨身 Wi-Fi','辦理入住手續、至櫃檯登記借用免費隨身 Wi-Fi 機，將大件行李放至客房。',[hotel],'住宿'],
   ['16:30 – 17:45','晚餐名店・播重壽喜燒','【晚餐名店】步行前往道頓堀，品嚐百年歷史的頂級關西風壽喜燒。',[['播重 壽喜燒 道頓堀本店',map('Harijyu+Dotonbori+Osaka')]],'美食'],
   ['18:00 – 19:45','大阪高島屋・起司蛋糕','【重點百貨首戰】憑護照至服務台領取 95 折 Hello Kitty 卡，採買一樓專櫃彩妝與 B1 美食街；順道外帶剛出爐的現烤搖鈴起司蛋糕。',[['大阪高島屋',map('Takashimaya+Osaka')],['Rikuro 老爺爺起司蛋糕 難波本店',map('Rikuro+Ojisanno+Mise+Namba+Honten')]],'購物'],
   ['20:00 – 21:30','LIFE 大型超市補貨','【市區最大超市補貨】採買生鮮水果、日式醬料、零食軟糖、大包泡麵（地下樓層營業至 24:00）。',[['LIFE中央廣場 難波店',map('Central+Square+Life+Namba')]],'購物'],
@@ -38,12 +38,11 @@ const DAYS = [
   ['20:00 – 21:30','玉出超市・零食大掃貨','【極低價零食雜貨採購】步行 1 分鐘至飯店斜對面玉出超市，以超便宜價格大量整箱掃貨日式飲料、茶包、零食與泡麵，手提直接回房。',[['玉出超市 惠美須店',map('Super+Tamade+Ebisu')]],'購物'],
   ['21:30～','打包秤重・最後一晚溫泉','完成所有行李秤重、打包封箱，享受最後一晚的溫泉與宵夜福利。',[hotel],'住宿']
  ]},
- {date:'2026-11-09',weekday:'MONDAY',label:'週一',title:'飯店退房・最後補貨',summary:'南海電鐵 ➜ 關西機場 ➜ 平安返台',items:[
-  ['09:00 – 10:30','收拾行李・退房','悠閒收拾隨身行李、辦理退房，將 Wi-Fi 機歸還飯店櫃檯，大件行李可暫時寄放大廳。',[hotel],'住宿'],
-  ['10:30 – 11:30','Lawson・7-11 最後採買','【便利商店最後搜刮】巡禮飯店旁的 Lawson 與 7-11，採買超商限定炸雞、日系甜點與限定生活小物。',[['Lawson 惠美須西二丁目店',map('Lawson+Ebisu-nishi+2-chome+Osaka')]],'購物'],
-  ['11:50 – 12:00','飯店取行李・步行至車站','回飯店大廳取行李，平路推行李約 6～8 分鐘抵達南海電鐵新今宮站。',[['南海電鐵 新今宮站',map('Shin-Imamiya+Station')]],'交通'],
-  ['12:15 – 12:55','Rapi:t 前往機場 T1','搭乘南海特急 Rapi:t 直達關西機場第一航廈。',[['關西國際機場 第一航廈',map('Kansai+International+Airport+Terminal+1')]],'交通'],
-  ['13:05 – 13:20','搭乘航廈接駁車 T1 → T2','轉搭航廈免費接駁巴士前往第二航廈（T2）。',[['關西機場 T1-T2 接駁巴士站',map('KIX+Terminal+Bus+Stop')]],'交通'],
+ {date:'2026-11-09',weekday:'MONDAY',label:'週一',title:'飯店退房・最後補貨',summary:'INNN 接送 ➜ 關西機場 ➜ 平安返台',items:[
+  ['09:00 – 09:40','收拾行李・退房','提前整理行李、辦理退房並歸還飯店 Wi-Fi 機；由於已訂機場接送，請在司機指定時間前完成集合準備。',[hotel],'住宿'],
+  ['09:40 – 09:55（視接送時間）','Lawson・7-11 最後採買','【便利商店最後搜刮】巡禮飯店旁的 Lawson 與 7-11，採買超商限定炸雞、日系甜點與限定生活小物。',[['Lawson 惠美須西二丁目店',map('Lawson+Ebisu-nishi+2-chome+Osaka')]],'購物'],
+  ['10:00 – 10:50（依 App 通知）','INNN 共乘接送・飯店前往機場','已預訂飯店至關西機場 T2 共乘接送；訂單預告約 10:00–10:50 接送，出發當日約 06:10 App 通知確切上車時間。依服務商安排經中轉站換乘。',[hotel,['關西機場 第二航廈',map('KIX+Terminal+2')]],'交通'],
+  ['12:00（訂單登記）','抵達關西機場 T2','接送訂單登記 12:00 抵達機場，實際時間以司機通知及交通狀況為準。',[['關西機場 第二航廈',map('KIX+Terminal+2')]],'交通'],
   ['13:20 – 14:30','樂桃航空報到・免稅店','樂桃航空櫃檯辦理報到、托運行李，過安檢並逛 T2 免稅店。',[['樂桃航空 關西機場 T2 報到櫃檯',map('Peach+Aviation+KIX+Terminal+2')]],'交通'],
   ['15:25 ➜ 17:55','MM027 起飛返台','搭乘 MM027 起飛返台，滿載戰利品平安抵達桃園機場。',[],'航班']
  ]}
@@ -107,3 +106,13 @@ function setTheme(next){theme=next;document.documentElement.dataset.theme=theme;
 $('themeToggle').addEventListener('click',()=>setTheme(theme==='dark'?'light':'dark'));
 setTheme(theme==='dark'?'dark':'light');
 drawDay();drawShopping();
+
+// 接送行李額度計算（僅為優惠方案參考，不等於訂單實付款）
+const luggageUnits = document.getElementById('luggageUnits');
+const luggageTotal = document.getElementById('luggageTotal');
+if (luggageUnits && luggageTotal) {
+  luggageUnits.addEventListener('change', () => {
+    const count = Number(luggageUnits.value);
+    luggageTotal.textContent = `¥${(count * 1650).toLocaleString('en-US')}`;
+  });
+}
