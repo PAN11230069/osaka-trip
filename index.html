@@ -209,6 +209,10 @@
     <!-- ==========================
              02. 旅行基本資訊
         ========================== -->
+    <div class="quick-jumps" aria-label="旅行工具快速連結">
+      <a href="#taxfree">免稅新制 ↗</a><a href="#coupons">商家優惠券 ↗</a><a href="#packing">需準備物品 ↗</a>
+    </div>
+
     <section id="overview" class="section overview-section">
 
       <!-- 區塊標題 -->
@@ -230,6 +234,16 @@
 
       </div>
 
+
+      <div class="meeting-highlight">
+        <div class="meeting-symbol">✈</div>
+        <div class="meeting-details">
+          <span class="meeting-label">11/05（四）・全員集合</span>
+          <strong>早上 07:00｜桃園機場 第一航廈 T1</strong>
+          <p>請大家準時集合，預留報到、託運及安檢時間。</p>
+        </div>
+        <a class="location-link" href="https://maps.google.com/?q=Taiwan+Taoyuan+International+Airport+Terminal+1" target="_blank" rel="noopener noreferrer">集合地點導航 ↗</a>
+      </div>
 
       <!-- 資訊卡片容器 -->
       <div class="overview-grid">
@@ -509,6 +523,58 @@
     <!-- ==========================
              04. 購物清單
         ========================== -->
+    <!-- ==========================
+         免稅新制（2026/11/01 起）
+    ========================== -->
+    <section id="taxfree" class="section guide-section">
+      <div class="section-heading">
+        <div><p class="section-label">04 / TAX-FREE GUIDE</p><h2>日本免稅新制<span class="h2-dot">。</span></h2></div>
+        <p class="section-aside">2026/11/01 起實施・此次旅程適用</p>
+      </div>
+      <div class="guide-alert"><strong>重點：購物先付含稅價，離境經海關確認後再退款。</strong><p>11/05–11/09 購買免稅商品時請特別注意，並以日本官方及現場實際指示為準。</p></div>
+      <div class="guide-grid">
+        <article class="guide-card"><span class="guide-step">01 · 購物</span><h3>先支付含稅價格</h3><p>在符合資格的免稅店出示護照，依店家流程登記退款方式、保存購買資料。</p></article>
+        <article class="guide-card"><span class="guide-step">02 · 離境</span><h3>先確認，再託運</h3><p>購買日起 90 天內離境；須能依海關要求出示免稅商品。出境機場的確認流程位於安檢前，裝箱與托運前先確認查驗。</p></article>
+        <article class="guide-card"><span class="guide-step">03 · 退稅</span><h3>海關確認後辦理退款</h3><p>由免稅店或其指定業者按登記方式退還相應消費稅；退款時間與方式依店家／業者流程。</p></article>
+      </div>
+      <div class="guide-note"><strong>關西機場提醒</strong><p>部分指定機場區域可使用 Visit Japan Web 輔助退稅確認；需符合現場網路及操作條件。不要把免稅確認誤認為入境申報，也別等到登機口才處理。</p>
+        <div class="guide-links"><a href="https://www.nta.go.jp/publication/pamph/shohi/menzei/201805/format/002.htm" target="_blank" rel="noopener noreferrer">日本國稅廳官方說明 ↗</a><a href="https://www.mlit.go.jp/kankocho/tax-free/content/001991234.pdf" target="_blank" rel="noopener noreferrer">觀光廳旅客流程圖 ↗</a><a href="https://www.japan.travel/tw/plan/japans-tax-exemption/" target="_blank" rel="noopener noreferrer">JNTO 中文介紹 ↗</a></div>
+      </div>
+    </section>
+
+    <!-- ==========================
+         商家優惠券（可自行編輯）
+    ========================== -->
+    <section id="coupons" class="section guide-section">
+      <div class="section-heading"><div><p class="section-label">05 / COUPON BOOK</p><h2>商家優惠券<span class="h2-dot">。</span></h2></div><p class="section-aside">待整理・新增後儲存在此裝置</p></div>
+      <div class="organizer-card">
+        <div class="organizer-header"><div><span class="organizer-eyebrow">MY COUPON COLLECTION</span><h3>優惠收藏簿 <span>✿</span></h3></div><span id="couponCount" class="organizer-count">0 張</span></div>
+        <form id="couponForm" class="organizer-form">
+          <label>商家名稱<input id="couponShop" maxlength="70" placeholder="例如：松本清" required></label>
+          <label>優惠內容<input id="couponOffer" maxlength="130" placeholder="例如：優惠條件／折扣內容（待確認）" required></label>
+          <label>優惠網址（選填）<input id="couponUrl" type="url" placeholder="https://..." maxlength="500"></label>
+          <label>有效期限（選填）<input id="couponExpiry" maxlength="60" placeholder="例如：2026/11/09"></label>
+          <div class="organizer-form-actions"><button type="submit" class="btn btn-main" id="couponSubmit">＋ 儲存優惠</button><button type="button" id="couponCancel" class="btn btn-ghost" hidden>取消編輯</button></div>
+        </form>
+        <div id="couponList" class="coupon-list" aria-live="polite"></div>
+        <p class="organizer-hint">請自行確認各商家活動條件、有效日期、是否可與免稅優惠併用；網站不預設未查證折扣。</p>
+      </div>
+    </section>
+
+    <!-- ==========================
+         行前準備檢查清單
+    ========================== -->
+    <section id="packing" class="section guide-section">
+      <div class="section-heading"><div><p class="section-label">06 / PACKING CHECKLIST</p><h2>需準備物品<span class="h2-dot">。</span></h2></div><p class="section-aside">按項目勾選・可自行新增／刪除</p></div>
+      <div class="organizer-card">
+        <div class="organizer-header"><div><span class="organizer-eyebrow">READY TO GO?</span><h3>出國前確認一下 <span>♡</span></h3></div><span id="packingCount" class="organizer-count">0 / 0</span></div>
+        <div class="packing-progress" role="progressbar" id="packingTrack" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="行前準備進度"><span id="packingFill"></span></div>
+        <form id="packingForm" class="organizer-form packing-add"><label>新增準備物品<input id="packingInput" maxlength="80" required placeholder="例如：備用眼鏡"></label><label>分類<select id="packingCategory"><option>證件與訂單</option><option>金錢與網路</option><option>電子用品</option><option>衣物與生活</option><option>健康與其他</option></select></label><button type="submit" class="btn btn-main">＋ 新增</button></form>
+        <div id="packingList" class="packing-list"></div>
+        <p class="organizer-hint">預設建議清單可自行勾選，自訂項目可刪除。資料儲存在目前瀏覽器，不會自動跨裝置同步。</p>
+      </div>
+    </section>
+
     <section id="shopping" class="section shopping-section">
 
       <!-- 區塊標題 -->

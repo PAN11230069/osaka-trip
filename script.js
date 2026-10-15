@@ -4,6 +4,7 @@ const map = (q) => `https://maps.google.com/?q=${q}`;
 const hotel = ['大阪逸之彩飯店日本橋',map('Osaka+Hinode+Hotel+Nipponbashi')];
 const DAYS = [
  {date:'2026-11-05',weekday:'THURSDAY',label:'週四',title:'入境直達・頂級黑毛和牛晚餐',summary:'百貨伴手禮 ➜ 大型超市大補貨',items:[
+  ['07:00','桃園機場第一航廈・全員集合','全體旅伴於桃園國際機場第一航廈（T1）07:00 集合。預留報到、行李託運、安檢與出境時間。',[['桃園國際機場 第一航廈',map('Taiwan+Taoyuan+International+Airport+Terminal+1')]],'集合'],
   ['13:10 – 14:30','抵達大阪・機場入境','樂桃 MM024 抵達關西機場第二航廈（T2），通關並提領行李。已預訂 INNN 共乘接送（訂單填寫 13:20），請先確認集合時間與地點是否足夠通關。',[['關西國際機場 第二航廈',map('KIX+Terminal+2')]],'交通'],
   ['依司機通知','INNN 共乘接送至飯店','已安排機場接送，不需搭乘南海電鐵；加入服務群組取得司機／車牌資訊，按通知搭乘支線小巴並於中轉站轉主線大巴，前往逸之彩飯店。',[['關西機場 第二航廈',map('KIX+Terminal+2')],hotel],'交通'],
   ['抵達飯店後','入住・借用隨身 Wi-Fi','辦理入住手續、至櫃檯登記借用免費隨身 Wi-Fi 機，將大件行李放至客房。',[hotel],'住宿'],
@@ -116,3 +117,76 @@ if (luggageUnits && luggageTotal) {
     luggageTotal.textContent = `¥${(count * 1650).toLocaleString('en-US')}`;
   });
 }
+
+
+// ===== 商家優惠券（localStorage，含編輯與刪除） =====
+let coupons = readStorage('coupons', []);
+if (!Array.isArray(coupons)) coupons = [];
+let editingCoupon = null;
+function safeCouponUrl(value) {
+  try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : ''; }
+  catch { return ''; }
+}
+function drawCoupons() {
+  $('couponCount').textContent = `${coupons.length} 張`;
+  $('couponList').innerHTML = coupons.length ? coupons.map(item => {
+    const url = safeCouponUrl(item.url || '');
+    return `<article class="coupon-item"><div class="coupon-details"><strong>${escapeText(item.shop)}</strong><p>${escapeText(item.offer)}</p>${item.expiry ? `<small>期限：${escapeText(item.expiry)}</small>` : ''}</div><div class="coupon-actions">${url ? `<a href="${escapeText(url)}" target="_blank" rel="noopener noreferrer">開啟優惠 ↗</a>` : ''}<button type="button" data-coupon-edit="${escapeText(item.id)}">編輯</button><button type="button" data-coupon-remove="${escapeText(item.id)}">刪除</button></div></article>`;
+  }).join('') : '<p class="empty-shopping">優惠券待整理。<br>先新增商家與優惠資料，之後可隨時修改 ♡</p>';
+  $('couponList').querySelectorAll('[data-coupon-edit]').forEach(btn => btn.addEventListener('click', () => {
+    const item = coupons.find(x => x.id === btn.dataset.couponEdit); if (!item) return;
+    editingCoupon = item.id; $('couponShop').value = item.shop; $('couponOffer').value = item.offer;
+    $('couponUrl').value = item.url || ''; $('couponExpiry').value = item.expiry || '';
+    $('couponSubmit').textContent = '儲存修改'; $('couponCancel').hidden = false; $('couponShop').focus();
+    $('couponForm').scrollIntoView({behavior:'smooth',block:'center'});
+  }));
+  $('couponList').querySelectorAll('[data-coupon-remove]').forEach(btn => btn.addEventListener('click', () => {
+    if (!confirm('確定刪除這張優惠券嗎？')) return;
+    coupons = coupons.filter(x => x.id !== btn.dataset.couponRemove); saveStorage('coupons',coupons); drawCoupons();
+  }));
+}
+function resetCouponForm() { editingCoupon = null; $('couponForm').reset(); $('couponSubmit').textContent = '＋ 儲存優惠'; $('couponCancel').hidden = true; }
+$('couponCancel').addEventListener('click',resetCouponForm);
+$('couponForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const shop = $('couponShop').value.trim(), offer = $('couponOffer').value.trim();
+  if (!shop || !offer) return;
+  const rawUrl = $('couponUrl').value.trim(), url = rawUrl ? safeCouponUrl(rawUrl) : '';
+  if (rawUrl && !url) { alert('請輸入有效的 http 或 https 網址。'); return; }
+  const value = {shop,offer,url,expiry:$('couponExpiry').value.trim()};
+  if (editingCoupon) { const item = coupons.find(x=>x.id===editingCoupon); if(item) Object.assign(item,value); }
+  else coupons.push({id:`coupon-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,...value});
+  saveStorage('coupons',coupons); resetCouponForm(); drawCoupons();
+});
+
+// ===== 行前準備清單 =====
+const PACKING_DEFAULTS = [
+  ['證件與訂單','護照（確認效期）'],['證件與訂單','機票／訂位資訊'],['證件與訂單','旅遊保險資料'],
+  ['證件與訂單','飯店訂房資料'],['證件與訂單','INNN 接送訂單及群組資訊'],['證件與訂單','日本入境申報／Visit Japan Web 資料'],
+  ['金錢與網路','日圓現金與信用卡'],['金錢與網路','手機網路／漫遊／eSIM'],['金錢與網路','緊急聯絡資訊'],
+  ['電子用品','手機與充電線'],['電子用品','行動電源（確認航空規範並隨身攜帶）'],['電子用品','日本插頭／電器電壓確認'],
+  ['衣物與生活','換洗衣物與外套'],['衣物與生活','盥洗用品／保養品'],['衣物與生活','舒適好走的鞋'],
+  ['衣物與生活','32 吋／20 吋行李箱與行李秤'],['健康與其他','個人常備藥品'],['健康與其他','雨具與環保購物袋']
+];
+let packing = readStorage('packing', null);
+if (!Array.isArray(packing)) packing = PACKING_DEFAULTS.map(([category,name],i)=>({id:`default-${i}`,category,name,done:false,builtin:true}));
+function drawPacking() {
+  const done = packing.filter(x=>x.done).length;
+  const percent = packing.length ? Math.round(done / packing.length * 100) : 0;
+  $('packingCount').textContent = `${done} / ${packing.length} 已備妥`;
+  $('packingFill').style.width = `${percent}%`; $('packingTrack').setAttribute('aria-valuenow',percent);
+  const categories = [...new Set(packing.map(x=>x.category))];
+  $('packingList').innerHTML = categories.map(cat=>`<div class="packing-group"><h4>${escapeText(cat)}</h4>${packing.filter(x=>x.category===cat).map(item=>`<div class="packing-item ${item.done?'is-packed':''}"><label><input type="checkbox" data-pack-toggle="${escapeText(item.id)}" ${item.done?'checked':''}><span class="shopping-check">✓</span><span>${escapeText(item.name)}</span></label>${item.builtin?'':`<button type="button" data-pack-remove="${escapeText(item.id)}" aria-label="刪除 ${escapeText(item.name)}">×</button>`}</div>`).join('')}</div>`).join('');
+  $('packingList').querySelectorAll('[data-pack-toggle]').forEach(el=>el.addEventListener('change',()=>{
+    const item = packing.find(x=>x.id===el.dataset.packToggle); if(item){item.done=el.checked;saveStorage('packing',packing);drawPacking();}
+  }));
+  $('packingList').querySelectorAll('[data-pack-remove]').forEach(el=>el.addEventListener('click',()=>{
+    packing=packing.filter(x=>x.id!==el.dataset.packRemove);saveStorage('packing',packing);drawPacking();
+  }));
+}
+$('packingForm').addEventListener('submit',event=>{
+  event.preventDefault(); const name=$('packingInput').value.trim(); if(!name)return;
+  packing.push({id:`pack-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,category:$('packingCategory').value,name,done:false,builtin:false});
+  saveStorage('packing',packing);$('packingInput').value='';drawPacking();
+});
+drawCoupons();drawPacking();
