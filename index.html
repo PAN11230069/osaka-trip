@@ -544,18 +544,39 @@
          商家優惠券（可自行編輯）
     ========================== -->
     <section id="coupons" class="section guide-section">
-      <div class="section-heading"><div><p class="section-label">05 / COUPON BOOK</p><h2>商家優惠券<span class="h2-dot">。</span></h2></div><p class="section-aside">圖片優惠券可放大顯示條碼／另開分頁</p></div>
+      <div class="section-heading"><div><p class="section-label">05 / COUPON BOOK</p><h2>商家優惠券<span class="h2-dot">。</span></h2></div><p class="section-aside">直接開啟商家官方優惠頁・免存大量圖片</p></div>
       <div class="organizer-card">
-        <div class="organizer-header"><div><span class="organizer-eyebrow">MY COUPON COLLECTION</span><h3>優惠收藏簿 <span>✿</span></h3></div><span id="couponCount" class="organizer-count">0 張</span></div>
-        <form id="couponForm" class="organizer-form">
-          <label>商家名稱<input id="couponShop" maxlength="70" placeholder="例如：松本清" required></label>
-          <label>優惠內容<input id="couponOffer" maxlength="130" placeholder="例如：優惠條件／折扣內容（待確認）" required></label>
-          <label>優惠網址（選填）<input id="couponUrl" type="url" placeholder="https://..." maxlength="500"></label>
-          <label>有效期限（選填）<input id="couponExpiry" maxlength="60" placeholder="例如：2026/11/09"></label>
-          <div class="organizer-form-actions"><button type="submit" class="btn btn-main" id="couponSubmit">＋ 儲存優惠</button><button type="button" id="couponCancel" class="btn btn-ghost" hidden>取消編輯</button></div>
-        </form>
-        <p class="organizer-hint">隨網站附上的優惠券圖片存放在 <code>assets/coupons/</code>，點擊名稱或縮圖即可放大；也可另開分頁向店員展示條碼。下方表單仍可新增文字／網址優惠。</p>
-        <div id="couponList" class="coupon-list" aria-live="polite"></div>
+        <div class="organizer-header"><div><span class="organizer-eyebrow">MY COUPON COLLECTION</span><h3>購物優惠快捷手冊 <span>✿</span></h3></div><span id="couponCount" class="organizer-count">0 張</span></div>
+        <p class="organizer-hint">這些按鈕連至 LikeJapan 原站，直接使用最新優惠券、點擊券圖放大給店員掃碼。原站可能需網路連線，實際折扣、參與門市及有效期限請以當日頁面為準。</p>
+        <nav class="coupon-category-links" aria-label="優惠券分類">
+          <a href="https://app.likejapan.com/zh-tw/" target="_blank" rel="noopener noreferrer">全部優惠 ↗</a>
+          <a href="https://app.likejapan.com/zh-tw/category/drugstore" target="_blank" rel="noopener noreferrer">藥妝雜貨 ↗</a>
+          <a href="https://app.likejapan.com/zh-tw/category/home-appliances" target="_blank" rel="noopener noreferrer">家電／電器 ↗</a>
+          <a href="https://app.likejapan.com/zh-tw/category/shopping-mall" target="_blank" rel="noopener noreferrer">大型商場 ↗</a>
+          <a href="https://app.likejapan.com/zh-tw/category/sports" target="_blank" rel="noopener noreferrer">運動／服飾 ↗</a>
+        </nav>
+        <div class="coupon-quick-grid">
+          <a class="coupon-quick-card" href="https://app.likejapan.com/zh-tw/coupon/%E8%97%A5%E5%A6%9D%E5%BA%97%E6%9D%BE%E6%9C%AC%E6%B8%85%E5%84%AA%E6%83%A0%E5%88%B8?category=drugstore&from=category" target="_blank" rel="noopener noreferrer"><span class="coupon-quick-kind">藥妝 · Day 2・心齋橋</span><strong>松本清</strong><small>旅行期間可參考，優惠依原站條件</small><span class="coupon-quick-go">開啟優惠券 ↗</span></a>
+          <a class="coupon-quick-card" href="https://app.likejapan.com/zh-tw/coupon/sundrug-coupon-7percent-off?category=drugstore&from=category" target="_blank" rel="noopener noreferrer"><span class="coupon-quick-kind">藥妝 · Day 2・心齋橋</span><strong>SUNDRUG</strong><small>請於結帳前確認適用門市</small><span class="coupon-quick-go">開啟優惠券 ↗</span></a>
+          <a class="coupon-quick-card" href="https://app.likejapan.com/zh-tw/category/home-appliances" target="_blank" rel="noopener noreferrer"><span class="coupon-quick-kind">藥妝／雜貨 · Day 2・道頓堀</span><strong>唐吉訶德 DONKI</strong><small>在清單中找到 Donki 優惠</small><span class="coupon-quick-go">開啟優惠券 ↗</span></a>
+          <a class="coupon-quick-card" href="https://app.likejapan.com/zh-tw/coupon/kitamura-camera-discount?category=home-appliances&from=category" target="_blank" rel="noopener noreferrer"><span class="coupon-quick-kind">家電／相機 · 難波 CITY</span><strong>北村相機</strong><small>優惠頁有效日期依原站</small><span class="coupon-quick-go">開啟優惠券 ↗</span></a>
+          <a class="coupon-quick-card" href="https://app.likejapan.com/zh-tw/coupon/labi-yamada-7percent-coupon?category=home-appliances&from=category" target="_blank" rel="noopener noreferrer"><span class="coupon-quick-kind">家電 · 家電備選</span><strong>LABI 山田電機</strong><small>適用門市與品項請確認</small><span class="coupon-quick-go">開啟優惠券 ↗</span></a>
+          <a class="coupon-quick-card" href="https://app.likejapan.com/zh-tw/coupon/EDION-7percent-discount-coupon?category=home-appliances&from=category" target="_blank" rel="noopener noreferrer"><span class="coupon-quick-kind">家電 · 家電備選</span><strong>EDION 愛電王</strong><small>優惠頁有效日期依原站</small><span class="coupon-quick-go">開啟優惠券 ↗</span></a>
+        </div>
+        <p class="coupon-important">⚠ BIC CAMERA 目前刊載的優惠券標示 2026/10/31 到期，早於 11/05 旅行日期，暫不列為可使用優惠；請出發前查看是否更新。網站不會複製第三方條碼圖片。</p>
+        <details class="coupon-custom-details">
+          <summary>＋ 我的其他優惠券／自訂收藏</summary>
+          <p class="organizer-hint">LikeJapan 沒有的商家，仍可在此加入網址或文字備註；資料儲存在目前瀏覽器。</p>
+          <form id="couponForm" class="organizer-form">
+            <label>商家名稱<input id="couponShop" maxlength="70" placeholder="例如：松本清" required></label>
+            <label>優惠內容<input id="couponOffer" maxlength="130" placeholder="例如：優惠條件／折扣內容（待確認）" required></label>
+            <label>優惠網址（選填）<input id="couponUrl" type="url" placeholder="https://..." maxlength="500"></label>
+            <label>有效期限（選填）<input id="couponExpiry" maxlength="60" placeholder="例如：2026/11/09"></label>
+            <div class="organizer-form-actions"><button type="submit" class="btn btn-main" id="couponSubmit">＋ 儲存優惠</button><button type="button" id="couponCancel" class="btn btn-ghost" hidden>取消編輯</button></div>
+          </form>
+          <div id="couponList" class="coupon-list" aria-live="polite"></div>
+        </details>
+        <p class="organizer-hint">重要：結帳時請以 LikeJapan 原頁顯示的券圖與規則為準。若網路斷線，外部優惠頁面可能無法使用。</p>
         <p class="organizer-hint">請自行確認各商家活動條件、有效日期、是否可與免稅優惠併用；網站不預設未查證折扣。</p>
       </div>
     </section>

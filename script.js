@@ -627,7 +627,7 @@ function openCouponImage(src, title) {
 $('couponClose').addEventListener('click', () => couponDialog.close());
 couponDialog.addEventListener('click', (e) => { if (e.target === couponDialog) couponDialog.close(); });
 function drawCoupons() {
-  $('couponCount').textContent = `${bundledCoupons.length + coupons.length} 張`;
+  $('couponCount').textContent = `${6 + bundledCoupons.length + coupons.length} 個入口／收藏`;
   const gallery = bundledCoupons.map((item,i) => {
     const image = couponImagePath(item.image);
     if (!image) return '';
