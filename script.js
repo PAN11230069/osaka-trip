@@ -207,7 +207,7 @@ const DAYS = [
       ],
       [
         "17:30 – 19:30",
-        "SUKIYAKI FUJIMOTO 頂級和牛",
+        "SUKIYAKI FUJIMOTO 頂級和牛壽喜燒",
         "【頂級和牛晚餐】享用肉質極佳、人氣話題壽喜燒 SUKIYAKI FUJIMOTO。",
         [
           [
@@ -320,7 +320,7 @@ const DAYS = [
       [
         "15:15 – 19:30",
         "LUCUA 1100・Yodobashi 家電 3C",
-        "【流行選品、潮牌與大型家電 3C】逛 LUCUA 1100 日系時裝與雜貨，並至 Yodobashi Links Umeda 採買美容儀器、日系保溫杯、吹風機與 3C 產品（原規劃營業至 21:00）。",
+        "【流行選品、潮牌與大型家電 3C】逛 LUCUA 1100 日系時裝與雜貨，並至 Yodobashi Links Umeda 採買美容儀器、日系保溫杯、吹風機與 3C 產品。",
         [
           [
             "友都八喜 Links Umeda",
@@ -675,11 +675,11 @@ fetch('assets/coupons/coupons.json').then(r => { if (!r.ok) throw new Error('優
 // ===== 行前準備清單 =====
 const PACKING_DEFAULTS = [
   ['證件與訂單','護照（確認效期）'],['證件與訂單','機票／訂位資訊'],['證件與訂單','旅遊保險資料'],
-  ['證件與訂單','飯店訂房資料'],['證件與訂單','INNN 接送訂單及群組資訊'],['證件與訂單','日本入境申報／Visit Japan Web 資料'],
-  ['金錢與網路','日圓現金與信用卡'],['金錢與網路','手機網路／漫遊／eSIM'],['金錢與網路','緊急聯絡資訊'],
+  ['證件與訂單','飯店訂房資料'],['證件與訂單','INNN 接送訂單'],['證件與訂單','日本入境申報／Visit Japan Web 資料'],
+  ['金錢與網路','日圓現金與信用卡'],['金錢與網路','手機網路／SIM卡'],
   ['電子用品','手機與充電線'],['電子用品','行動電源（確認航空規範並隨身攜帶）'],['電子用品','日本插頭／電器電壓確認'],
   ['衣物與生活','換洗衣物與外套'],['衣物與生活','盥洗用品／保養品'],['衣物與生活','舒適好走的鞋'],
-  ['衣物與生活','32 吋／20 吋行李箱與行李秤'],['健康與其他','個人常備藥品'],['健康與其他','雨具與環保購物袋']
+  ['健康與其他','個人常備藥品'],['健康與其他','雨具與環保購物袋']
 ];
 let packing = readStorage('packing', null);
 if (!Array.isArray(packing)) packing = PACKING_DEFAULTS.map(([category,name],i)=>({id:`default-${i}`,category,name,done:false,builtin:true}));
