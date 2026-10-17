@@ -9,7 +9,7 @@
 ## 部署到 GitHub Pages
 
 1. 登入 GitHub，新建 Repository（例如 `osaka-trip`），設為 Public。
-2. 上傳 ZIP 解壓縮後 **`osaka-travel` 資料夾內的所有檔案** 到 Repository 根目錄。請確定最上層直接看得到 `index.html`、`style.css`、`script.js`、`assets`。
+2. 上傳 ZIP 解壓縮後 **此 ZIP 根目錄中的所有檔案** 到 Repository 根目錄。請確定最上層直接看得到 `index.html`、`style.css`、`script.js`、`assets`。
 3. 前往 Repository 的 **Settings → Pages**。
 4. 在 **Build and deployment → Source** 選擇 `Deploy from a branch`。
 5. Branch 選 `main`，資料夾選 `/(root)`，按 **Save**。
@@ -31,7 +31,7 @@
 
 ## 注意
 
-原始行程所列班次、旅行時間、營業時間、優惠、飯店福利與餐廳資訊**並未視為已經由官方確認**。出發前請再查證，尤其是機場 T1/T2 接駁、Rapi:t 車次與樂桃航空實際報到截止時間。免費 Wi-Fi、溫泉、宵夜及百貨折扣是否提供亦請先確認。
+原始行程所列班次、旅行時間、營業時間、優惠、飯店福利與餐廳資訊**並未視為已經由官方確認**。出發前請再查證，尤其是樂桃航空實際報到截止時間、INNN 接送上下車流程、餐廳深夜營業時間，以及溫泉、宵夜和百貨折扣是否提供。
 
 Google Fonts 需要網路載入，離線時系統會使用備用字型。Google Maps 導航需網路連線。
 
@@ -51,4 +51,25 @@ Google Fonts 需要網路載入，離線時系統會使用備用字型。Google 
 - 新增「商家優惠券」空白整理區：可新增／編輯／刪除商家名稱、優惠內容、有效期限與網址；尚未預填未經確認的商家優惠。
 - 新增「需準備物品」分組勾選清單，包含證件與訂單、金錢與網路、電子用品、衣物與生活、健康與其他；可加入或刪除自訂項目。
 - 新增 2026/11/01 日本消費稅免稅退款制度說明（官方： https://www.nta.go.jp/publication/pamph/shohi/menzei/201805/format/002.htm ）；離境需先依海關規範完成商品確認、再託運。
-- 優惠券與準備清單使用現有 localStorage 命名空間，並保留舊版購物清單和每日打勾進度。
+- 優惠券與準備清單使用現有 localStorage 命名空間，並保留舊版購物清單；因 V4 行程重新編排，完成勾選進度將重新開始，避免錯誤套用至不同活動。
+
+## V4：五天行程及圖片優惠券（2026/10/17）
+
+- 五天行程全數依最新提供內容更新（共 41 站）；Day 1 07:00–07:40 桃園第一航廈集合，09:40 MM024 起飛；Day 5 15:25 MM027 起飛。
+- 飯店入住內容僅保留入住／放置行李，已移除借用／歸還隨身 Wi-Fi。
+- 去程接機訂單登記 13:20，但新版行程規劃 13:50–14:10 報到，須向 INNN 確認實際報到安排。
+- 商家優惠券圖片請放進 `assets/coupons/`，並編輯 `assets/coupons/coupons.json` 以便頁面列出圖片。
+- `coupons.json` 範例：
+
+```json
+[
+  {"shop": "松本清", "offer": "優惠折扣（依圖片條件）", "expiry": "2026/11/09", "image": "matsukiyo.jpg"},
+  {"shop": "唐吉訶德", "offer": "請出示條碼", "image": "donki.png"}
+]
+```
+
+- 商家券圖可以點擊縮圖、商家名稱放大；也可點「新分頁開啟」展示原始圖片掃碼。原圖解析度決定掃碼品質。
+- `coupons.json` 配合 GitHub Pages 網址載入，請以 localhost 或 GitHub Pages 測試；部分瀏覽器直接以 file:// 開啟時會封鎖 JSON 讀取。
+- **隱私提醒**：GitHub Pages 若為公開儲存庫，優惠券圖片可被任何人查看，不應放入個人專屬條碼、個資或接送訂單 QR Code。
+- 部分 Day 2 行程跨至 Day 3 凌晨，依原提供內容歸在 Day 2。
+- 需自行再次確認商家、餐廳營業時間及交通轉乘可行性；行程以原提供時間保留。

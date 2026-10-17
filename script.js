@@ -3,50 +3,529 @@
 const map = (q) => `https://maps.google.com/?q=${q}`;
 const hotel = ['大阪逸之彩飯店日本橋',map('Osaka+Hinode+Hotel+Nipponbashi')];
 const DAYS = [
- {date:'2026-11-05',weekday:'THURSDAY',label:'週四',title:'入境直達・頂級黑毛和牛晚餐',summary:'百貨伴手禮 ➜ 大型超市大補貨',items:[
-  ['07:00','桃園機場第一航廈・全員集合','全體旅伴於桃園國際機場第一航廈（T1）07:00 集合。預留報到、行李託運、安檢與出境時間。',[['桃園國際機場 第一航廈',map('Taiwan+Taoyuan+International+Airport+Terminal+1')]],'集合'],
-  ['13:10 – 14:30','抵達大阪・機場入境','樂桃 MM024 抵達關西機場第二航廈（T2），通關並提領行李。已預訂 INNN 共乘接送（訂單填寫 13:20），請先確認集合時間與地點是否足夠通關。',[['關西國際機場 第二航廈',map('KIX+Terminal+2')]],'交通'],
-  ['依司機通知','INNN 共乘接送至飯店','已安排機場接送，不需搭乘南海電鐵；加入服務群組取得司機／車牌資訊，按通知搭乘支線小巴並於中轉站轉主線大巴，前往逸之彩飯店。',[['關西機場 第二航廈',map('KIX+Terminal+2')],hotel],'交通'],
-  ['抵達飯店後','入住・借用隨身 Wi-Fi','辦理入住手續、至櫃檯登記借用免費隨身 Wi-Fi 機，將大件行李放至客房。',[hotel],'住宿'],
-  ['16:30 – 17:45','晚餐名店・播重壽喜燒','【晚餐名店】步行前往道頓堀，品嚐百年歷史的頂級關西風壽喜燒。',[['播重 壽喜燒 道頓堀本店',map('Harijyu+Dotonbori+Osaka')]],'美食'],
-  ['18:00 – 19:45','大阪高島屋・起司蛋糕','【重點百貨首戰】憑護照至服務台領取 95 折 Hello Kitty 卡，採買一樓專櫃彩妝與 B1 美食街；順道外帶剛出爐的現烤搖鈴起司蛋糕。',[['大阪高島屋',map('Takashimaya+Osaka')],['Rikuro 老爺爺起司蛋糕 難波本店',map('Rikuro+Ojisanno+Mise+Namba+Honten')]],'購物'],
-  ['20:00 – 21:30','LIFE 大型超市補貨','【市區最大超市補貨】採買生鮮水果、日式醬料、零食軟糖、大包泡麵（地下樓層營業至 24:00）。',[['LIFE中央廣場 難波店',map('Central+Square+Life+Namba')]],'購物'],
-  ['21:45～','飯店宵夜・溫泉','返回逸之彩飯店放戰利品，享用飯店提供的免費生啤酒暢飲、哈根達斯與熱騰騰拉麵宵夜，前往溫泉大浴場泡湯。',[hotel],'住宿']
- ]},
- {date:'2026-11-06',weekday:'FRIDAY',label:'週五',title:'元祖蛋包飯・御堂筋精品大街',summary:'大丸心齋橋 ➜ 甜點可頌 ➜ 道頓堀不夜城',items:[
-  ['10:30 – 11:30','北極星・元祖蛋包飯','地鐵至心齋橋／難波站，前往榻榻米老宅品嚐日本蛋包飯發祥始祖。',[['北極星 蛋包飯 心齋橋本店',map('Hokkyokusei+Shinsaibashi+Honten')]],'美食'],
-  ['11:45 – 14:00','御堂筋國際精品大道','【國際精品大道旗艦巡禮】沿著御堂筋林蔭大道採買 LV 帆船建築旗艦店、Chanel、Hermès、Dior 等專賣店。',[['路易威登之家 大阪御堂筋店',map('Louis+Vuitton+Maison+Osaka+Midosuji')]],'購物'],
-  ['14:00 – 16:30','大丸心齋橋百貨採購','【百貨採購】大丸心齋橋本館／北館退稅採買精品、美妝，9 樓朝聖寶可夢中心。',[['大丸心齋橋店',map('Daimaru+Shinsaibashi')]],'購物'],
-  ['16:40 – 17:30','迷你可頌・奶油泡芙','【排隊甜點補給】採購現烤迷你可頌與心齋橋人氣現灌奶油泡芙當下午茶點心。',[['Le Croissant Petit 心齋橋店',map('Le+Croissant+Petit+Shinsaibashi')],['MooKEN 奶油泡芙 心齋橋店',map('MooKEN+Shinsaibashi')]],'美食'],
-  ['17:45 – 21:00','心齋橋藥妝・唐吉訶德','【藥妝美妝進貨大作戰】橫掃心齋橋筋松本清、Sundrug，一路採買至 24 小時營業的驚安殿堂唐吉訶德。',[['松本清 心齋橋南店',map('Matsumoto+Kiyoshi+Shinsaibashi+Minami')],['唐吉訶德 道頓堀店',map('Don+Quijote+Dotonbori')]],'購物'],
-  ['21:00 – 22:00','達摩串炸・在地宵夜','【在地串炸宵夜】在元祖炸串品嚐香酥薄脆的大阪代表性平民美食。',[['達摩串炸 道頓堀店',map('Kushikatsu+Daruma+Dotonbori')]],'美食'],
-  ['22:15～','滿載而歸・飯店大浴場','滿載而歸搭車回飯店，頂樓花園看夜景、享受大浴場三溫暖。',[hotel],'住宿']
- ]},
- {date:'2026-11-07',weekday:'SATURDAY',label:'週六',title:'梅田頂級百貨全天戰線',summary:'西日本最大百貨商圈・精品 ➜ 伴手禮 ➜ 3C',items:[
-  ['10:00 – 13:00','阪急梅田・精品與伴手禮','【一線精品與殿堂級伴手禮】搭地鐵御堂筋線直達梅田，衝阪急梅田總店一樓化妝品專櫃、B1 排隊甜點伴手禮（ECHIRE 奶油、Sugar Butter Tree）。',[['阪急百貨梅田總店',map('Hankyu+Umeda+Main+Store')]],'購物'],
-  ['13:15 – 14:30','LUCUA 美食街午餐','梅田商圈／LUCUA 美食街享用午餐。',[['LUCUA 大阪',map('LUCUA+Osaka')]],'美食'],
-  ['14:30 – 18:00','LUCUA 1100・Yodobashi','【流行選品、潮牌與大型電器】逛 LUCUA 1100 日系時裝與雜貨，並至隔壁 Yodobashi Links Umeda 採買美容儀器、日系保溫杯與最新 3C 產品。',[['友都八喜 Links Umeda',map('Links+Umeda')]],'購物'],
-  ['18:15 – 19:45','阪神百貨・美食晚餐','梅田阪神百貨美食街晚餐（或品嚐人氣名物花枝燒）。',[['阪神百貨梅田總店',map('Hanshin+Department+Store+Umeda')]],'美食'],
-  ['20:00 – 21:00','返回難波・神座拉麵','搭車返回心齋橋／難波，若還有體力可前往品嚐蔬菜清爽甘甜湯頭的道頓堀神座拉麵。',[['神座拉麵 道頓堀店',map('Kamukura+Dotonbori')]],'美食'],
-  ['21:30～','飯店整理戰利品・溫泉','回逸之彩飯店打包裝箱前三天的戰利品，享受生啤酒與天然溫泉。',[hotel],'住宿']
- ]},
- {date:'2026-11-08',weekday:'SUNDAY',label:'週日',title:'人氣飯糰・日本橋電器街',summary:'米其林推薦大阪燒 ➜ 難波逛街 ➜ 24H 超市',items:[
-  ['09:30 – 10:45','Onigiri Gorichan 飯糰早餐','【早餐名店】現場享用爆餡、溫熱現做的超人氣日式大飯糰。',[['Onigiri Gorichan 難波店',map('Onigiri+Gorichan+Namba')]],'美食'],
-  ['11:00 – 13:00','日本橋 Den Den Town','【動漫電器巡禮】從飯店步行 3 分鐘漫步日本橋電器動漫街（Den Den Town），採購模型玩具、耳機與電子配件。',[['日本橋電器街 (Den Den Town)',map('Nippombashi+Denden+Town')]],'購物'],
-  ['13:15 – 14:45','美津の・大阪燒午餐','【午餐名店】品嚐長年榮獲米其林必比登推薦的超人氣山藥海鮮大阪燒（招牌美津の燒）。',[['美津の 大阪燒 (Mizuno)',map('Mizuno+Okonomiyaki+Osaka')]],'美食'],
-  ['15:00 – 17:30','難波 Parks・難波 CITY','【大型戶外休閒服飾補貨】步行至難波 Parks 與難波 CITY，採購休閒服裝、露營戶外用品、運動鞋款。',[['難波 Parks (Namba Parks)',map('Namba+Parks')]],'購物'],
-  ['18:00 – 19:30','自由軒・經典熟成咖哩','【晚餐老字號】難波百年洋食名店，品嚐中央打上一顆生蛋黃的經典熟成咖哩飯。',[['自由軒 難波本店',map('Jiyuken+Namba+Honten')]],'美食'],
-  ['20:00 – 21:30','玉出超市・零食大掃貨','【極低價零食雜貨採購】步行 1 分鐘至飯店斜對面玉出超市，以超便宜價格大量整箱掃貨日式飲料、茶包、零食與泡麵，手提直接回房。',[['玉出超市 惠美須店',map('Super+Tamade+Ebisu')]],'購物'],
-  ['21:30～','打包秤重・最後一晚溫泉','完成所有行李秤重、打包封箱，享受最後一晚的溫泉與宵夜福利。',[hotel],'住宿']
- ]},
- {date:'2026-11-09',weekday:'MONDAY',label:'週一',title:'飯店退房・最後補貨',summary:'INNN 接送 ➜ 關西機場 ➜ 平安返台',items:[
-  ['09:00 – 09:40','收拾行李・退房','提前整理行李、辦理退房並歸還飯店 Wi-Fi 機；由於已訂機場接送，請在司機指定時間前完成集合準備。',[hotel],'住宿'],
-  ['09:40 – 09:55（視接送時間）','Lawson・7-11 最後採買','【便利商店最後搜刮】巡禮飯店旁的 Lawson 與 7-11，採買超商限定炸雞、日系甜點與限定生活小物。',[['Lawson 惠美須西二丁目店',map('Lawson+Ebisu-nishi+2-chome+Osaka')]],'購物'],
-  ['10:00 – 10:50（依 App 通知）','INNN 共乘接送・飯店前往機場','已預訂飯店至關西機場 T2 共乘接送；訂單預告約 10:00–10:50 接送，出發當日約 06:10 App 通知確切上車時間。依服務商安排經中轉站換乘。',[hotel,['關西機場 第二航廈',map('KIX+Terminal+2')]],'交通'],
-  ['12:00（訂單登記）','抵達關西機場 T2','接送訂單登記 12:00 抵達機場，實際時間以司機通知及交通狀況為準。',[['關西機場 第二航廈',map('KIX+Terminal+2')]],'交通'],
-  ['13:20 – 14:30','樂桃航空報到・免稅店','樂桃航空櫃檯辦理報到、托運行李，過安檢並逛 T2 免稅店。',[['樂桃航空 關西機場 T2 報到櫃檯',map('Peach+Aviation+KIX+Terminal+2')]],'交通'],
-  ['15:25 ➜ 17:55','MM027 起飛返台','搭乘 MM027 起飛返台，滿載戰利品平安抵達桃園機場。',[],'航班']
- ]}
+  {
+    "date": "2026-11-05",
+    "weekday": "THURSDAY",
+    "label": "週四",
+    "title": "桃園集合・INNN 接機・難波購物",
+    "summary": "高島屋／難波 CITY／Parks ➜ LIFE 超市 ➜ 神座拉麵",
+    "items": [
+      [
+        "07:00 – 07:40",
+        "桃園機場第一航廈集合",
+        "【桃園機場第一航廈集合】辦理樂桃航空 MM024 報到、託運行李與安檢通關。",
+        [
+          [
+            "桃園國際機場 第一航廈",
+            "https://maps.google.com/?q=Taoyuan+International+Airport+Terminal+1"
+          ]
+        ],
+        "航班"
+      ],
+      [
+        "09:40 – 13:10",
+        "MM024 飛往關西機場",
+        "搭乘樂桃航空 MM024 飛往關西國際機場（KIX）。",
+        [],
+        "航班"
+      ],
+      [
+        "13:10 – 13:50",
+        "抵達關西機場 T2",
+        "班機抵達第二航廈（T2），完成檢疫、入境審查與提領行李。",
+        [
+          [
+            "關西國際機場 第二航廈",
+            "https://maps.google.com/?q=KIX+Terminal+2"
+          ]
+        ],
+        "交通"
+      ],
+      [
+        "13:50 – 14:10",
+        "INNN 接機報到",
+        "【INNN 接機報到】前往 T2 專屬接機櫃檯出示二維碼簽到核銷，由專人引導上車。",
+        [
+          [
+            "關西國際機場 第二航廈",
+            "https://maps.google.com/?q=KIX+Terminal+2"
+          ]
+        ],
+        "交通"
+      ],
+      [
+        "14:10 – 15:30",
+        "搭乘 INNN 接駁大巴至飯店",
+        "搭乘接駁大巴直達逸之彩飯店門口，專人搬運行李。",
+        [
+          [
+            "大阪逸之彩飯店日本橋",
+            "https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi"
+          ]
+        ],
+        "交通"
+      ],
+      [
+        "15:30 – 16:15",
+        "飯店入住・放置行李",
+        "辦理入住手續放行李。",
+        [
+          [
+            "大阪逸之彩飯店日本橋",
+            "https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi"
+          ]
+        ],
+        "住宿"
+      ],
+      [
+        "16:30 – 20:00",
+        "難波三大商場連貫大採購",
+        "【難波三大商場連貫大採購】高島屋 1 樓外國人服務處領取 95 折卡，購買彩妝名牌與 B1 伴手禮（原規劃營業至 20:00）；順逛難波 CITY 與難波 Parks 日系服飾、戶外露營選品，順路外帶現烤起司蛋糕。",
+        [
+          [
+            "大阪高島屋",
+            "https://maps.google.com/?q=Takashimaya+Osaka"
+          ],
+          [
+            "難波 Parks (Namba Parks)",
+            "https://maps.google.com/?q=Namba+Parks"
+          ],
+          [
+            "難波 CITY",
+            "https://maps.google.com/?q=Namba+CITY"
+          ],
+          [
+            "Rikuro 老爺爺起司蛋糕 難波本店",
+            "https://maps.google.com/?q=Rikuro+Ojisanno+Mise+Namba+Honten"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "20:15 – 22:30",
+        "LIFE 大型生鮮超市補貨",
+        "【大型生鮮超市夜間大補貨】步行前往 Central Square LIFE 難波店（原規劃 B1 營業至 24:00），採購日本水果、飲料、大包零食與日式調味料。",
+        [
+          [
+            "LIFE中央廣場 難波店",
+            "https://maps.google.com/?q=Central+Square+Life+Namba"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "22:30 – 23:30",
+        "神座拉麵宵夜",
+        "前往難波道頓堀一帶吃碗清爽甘甜的神座拉麵當夜宵。",
+        [
+          [
+            "神座拉麵 道頓堀店",
+            "https://maps.google.com/?q=Kamukura+Dotonbori"
+          ]
+        ],
+        "美食"
+      ],
+      [
+        "23:45～",
+        "回飯店・深夜泡湯",
+        "返回逸之彩飯店，享受深夜大浴場泡湯舒緩。",
+        [
+          [
+            "大阪逸之彩飯店日本橋",
+            "https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi"
+          ]
+        ],
+        "住宿"
+      ]
+    ]
+  },
+  {
+    "date": "2026-11-06",
+    "weekday": "FRIDAY",
+    "label": "週五",
+    "title": "飯糰早餐・御堂筋精品・和牛晚餐",
+    "summary": "心齋橋購物 ➜ SUKIYAKI FUJIMOTO ➜ 藥妝／唐吉訶德",
+    "items": [
+      [
+        "09:00 – 09:20",
+        "搭車前往日本橋",
+        "準時出發，搭地鐵堺筋線至日本橋站。",
+        [],
+        "交通"
+      ],
+      [
+        "09:20 – 10:20",
+        "Onigiri Gorichan 飯糰早餐",
+        "【早餐名店】享用現做爆餡的超人氣日式大飯糰。",
+        [
+          [
+            "Onigiri Gorichan 難波店",
+            "https://maps.google.com/?q=Onigiri+Gorichan+Namba"
+          ]
+        ],
+        "美食"
+      ],
+      [
+        "10:30 – 13:00",
+        "御堂筋精品旗艦巡禮",
+        "【御堂筋國際精品大道旗艦巡禮】採買 LV 帆船建築旗艦店、Chanel、Hermès、Dior 等專賣店。",
+        [
+          [
+            "路易威登之家 大阪御堂筋店",
+            "https://maps.google.com/?q=Louis+Vuitton+Maison+Osaka+Midosuji"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "13:00 – 16:30",
+        "大丸心齋橋百貨全面採買",
+        "【大丸百貨全面採買】本館／北館專櫃採購精品服飾、退稅，9 樓朝聖寶可夢中心。",
+        [
+          [
+            "大丸心齋橋店",
+            "https://maps.google.com/?q=Daimaru+Shinsaibashi"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "16:30 – 17:15",
+        "迷你可頌與奶油泡芙",
+        "【下午茶點心】採買現烤香脆迷你可頌與心齋橋人氣現灌奶油泡芙。",
+        [
+          [
+            "Le Croissant Petit 心齋橋店",
+            "https://maps.google.com/?q=Le+Croissant+Petit+Shinsaibashi"
+          ],
+          [
+            "MooKEN 奶油泡芙 心齋橋店",
+            "https://maps.google.com/?q=MooKEN+Shinsaibashi"
+          ]
+        ],
+        "美食"
+      ],
+      [
+        "17:30 – 19:30",
+        "SUKIYAKI FUJIMOTO 頂級和牛",
+        "【頂級和牛晚餐】享用肉質極佳、人氣話題壽喜燒 SUKIYAKI FUJIMOTO。",
+        [
+          [
+            "SUKIYAKI FUJIMOTO (すき焼き 藤もと)",
+            "https://maps.google.com/?q=Sukiyaki+Fujimoto+Osaka"
+          ]
+        ],
+        "美食"
+      ],
+      [
+        "19:45 – 22:00",
+        "心齋橋筋藥妝採購",
+        "【心齋橋筋藥妝血拼】橫掃松本清、Sundrug，趁晚間補足所有美妝保健消耗品。",
+        [
+          [
+            "松本清 心齋橋南店",
+            "https://maps.google.com/?q=Matsumoto+Kiyoshi+Shinsaibashi+Minami"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "22:00 – 23:30",
+        "唐吉訶德深夜掃貨",
+        "【驚安殿堂深夜掃貨】前往原規劃 24 小時營業的唐吉訶德道頓堀店，悠閒選購零食、日系雜貨並辦理退稅。",
+        [
+          [
+            "唐吉訶德 道頓堀店",
+            "https://maps.google.com/?q=Don+Quijote+Dotonbori"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "23:30 – 00:30（隔日）",
+        "道頓堀達摩串炸宵夜",
+        "道頓堀達摩串炸配生啤吃宵夜，享受大阪不夜城氛圍。此時段跨至 11/07 凌晨。",
+        [
+          [
+            "達摩串炸 道頓堀店",
+            "https://maps.google.com/?q=Kushikatsu+Daruma+Dotonbori"
+          ]
+        ],
+        "美食"
+      ],
+      [
+        "00:45～（11/07）",
+        "返回飯店",
+        "搭計程車或步行返回飯店。",
+        [
+          [
+            "大阪逸之彩飯店日本橋",
+            "https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi"
+          ]
+        ],
+        "住宿"
+      ]
+    ]
+  },
+  {
+    "date": "2026-11-07",
+    "weekday": "SATURDAY",
+    "label": "週六",
+    "title": "梅田精品百貨・美津の大阪燒",
+    "summary": "阪急梅田 ➜ LUCUA／Yodobashi ➜ 道頓堀",
+    "items": [
+      [
+        "09:00 – 09:35",
+        "搭地鐵前往梅田",
+        "準時出門，搭乘地鐵御堂筋線直達「梅田站」。",
+        [],
+        "交通"
+      ],
+      [
+        "09:40 – 10:45",
+        "北極星蛋包飯／早午餐",
+        "在梅田品嚐老字號北極星蛋包飯或悠閒享用早午餐。",
+        [
+          [
+            "北極星 蛋包飯 梅田店",
+            "https://maps.google.com/?q=Hokkyokusei+Umeda"
+          ]
+        ],
+        "美食"
+      ],
+      [
+        "10:45 – 14:00",
+        "阪急梅田美妝・伴手禮",
+        "【一線美妝與殿堂級伴手禮】衝阪急百貨梅田總店一樓美妝專櫃、國際精品，以及 B1 伴手禮甜點（ECHIRE 奶油、Sugar Butter Tree 等）。",
+        [
+          [
+            "阪急百貨梅田總店",
+            "https://maps.google.com/?q=Hankyu+Umeda+Main+Store"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "14:00 – 15:15",
+        "LUCUA／阪神美食街午餐",
+        "LUCUA 美食街或阪神百貨地下美食街享用午餐。",
+        [
+          [
+            "LUCUA 大阪",
+            "https://maps.google.com/?q=LUCUA+Osaka"
+          ]
+        ],
+        "美食"
+      ],
+      [
+        "15:15 – 19:30",
+        "LUCUA 1100・Yodobashi 家電 3C",
+        "【流行選品、潮牌與大型家電 3C】逛 LUCUA 1100 日系時裝與雜貨，並至 Yodobashi Links Umeda 採買美容儀器、日系保溫杯、吹風機與 3C 產品（原規劃營業至 21:00）。",
+        [
+          [
+            "友都八喜 Links Umeda",
+            "https://maps.google.com/?q=Links+Umeda"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "20:00 – 21:30",
+        "美津の米其林推薦大阪燒",
+        "【米其林推薦大阪燒】返回難波／道頓堀，品嚐美津の招牌山藥海鮮大阪燒。",
+        [
+          [
+            "美津の 大阪燒 (Mizuno)",
+            "https://maps.google.com/?q=Mizuno+Okonomiyaki+Osaka"
+          ]
+        ],
+        "美食"
+      ],
+      [
+        "21:30 – 23:30",
+        "道頓堀・千日前深夜續攤",
+        "【道頓堀／千日前深夜續攤】採買排隊甜點，或在道頓堀運河周邊散步、補齊未買齊的藥妝生活用品。",
+        [],
+        "購物"
+      ],
+      [
+        "23:45～",
+        "飯店整理戰利品・溫泉",
+        "返回飯店打包戰利品、享受飯店免費宵夜與溫泉。",
+        [
+          [
+            "大阪逸之彩飯店日本橋",
+            "https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi"
+          ]
+        ],
+        "住宿"
+      ]
+    ]
+  },
+  {
+    "date": "2026-11-08",
+    "weekday": "SUNDAY",
+    "label": "週日",
+    "title": "臨空城 Outlet・天王寺採購",
+    "summary": "Rinku Premium Outlets ➜ Abeno Q’s Mall ➜ 自由軒",
+    "items": [
+      [
+        "09:00 – 09:45",
+        "前往臨空城站",
+        "自飯店步行至南海「新今宮站」，搭乘南海空港急行直達「臨空城站（Rinku-Town）」。",
+        [
+          [
+            "南海電鐵 新今宮站",
+            "https://maps.google.com/?q=Shin-Imamiya+Station"
+          ]
+        ],
+        "交通"
+      ],
+      [
+        "10:00 – 15:00",
+        "臨空城 Premium Outlets 大掃貨",
+        "【臨空城 Premium Outlets 大掃貨】逛國際名牌、運動鞋服與日系品牌特惠，中午在園區內美食廣場享用。",
+        [
+          [
+            "臨空城 Premium Outlets",
+            "https://maps.google.com/?q=Rinku+Premium+Outlets"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "15:15 – 16:00",
+        "JR 關空快速前往天王寺",
+        "搭乘 JR 關空快速從「臨空城站」直達「天王寺站」。",
+        [],
+        "交通"
+      ],
+      [
+        "16:00 – 19:30",
+        "天王寺 Abeno Q’s Mall 採購",
+        "【天王寺 Abeno Q’s Mall 全面採購】大逛阿卡將、BicCamera、大型 Ito Yokado（伊藤洋華堂）超市、SHIBUYA109 與日系服飾（商場原規劃營業至 21:00）。",
+        [
+          [
+            "Abeno Q’s Mall (阿倍野 Q’s Mall)",
+            "https://maps.google.com/?q=Abeno+Qs+Mall"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "19:45 – 21:00",
+        "自由軒經典熟成咖哩",
+        "搭地鐵前往難波，品嚐百年老字號自由軒的經典太陽蛋熟成咖哩飯。",
+        [
+          [
+            "自由軒 難波本店",
+            "https://maps.google.com/?q=Jiyuken+Namba+Honten"
+          ]
+        ],
+        "美食"
+      ],
+      [
+        "21:30 – 23:30",
+        "玉出超市深夜零食掃貨",
+        "【極低價零食深夜整箱大掃貨】前往飯店附近玉出超市，整箱掃貨飲料、零食、茶包與泡麵。",
+        [
+          [
+            "玉出超市 惠美須店",
+            "https://maps.google.com/?q=Super+Tamade+Ebisu"
+          ]
+        ],
+        "購物"
+      ],
+      [
+        "23:30～",
+        "飯店秤重封箱・最後一晚",
+        "返回飯店，行李箱秤重封箱，最後一晚享受大浴場溫泉與啤酒飲品。",
+        [
+          [
+            "大阪逸之彩飯店日本橋",
+            "https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi"
+          ]
+        ],
+        "住宿"
+      ]
+    ]
+  },
+  {
+    "date": "2026-11-09",
+    "weekday": "MONDAY",
+    "label": "週一",
+    "title": "飯店退房・INNN 送機",
+    "summary": "關西機場 T2 ➜ MM027 平安返台",
+    "items": [
+      [
+        "09:00 – 09:45",
+        "整理行李・最後檢查",
+        "悠閒起床，在客房完成隨身行李打包與最後檢查。",
+        [],
+        "住宿"
+      ],
+      [
+        "09:45 – 10:00",
+        "逸之彩飯店退房",
+        "回逸之彩飯店櫃檯辦理退房手續，將所有戰利品行李集中至 1 樓大廳準備候車。",
+        [
+          [
+            "大阪逸之彩飯店日本橋",
+            "https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi"
+          ]
+        ],
+        "住宿"
+      ],
+      [
+        "10:00 – 10:50",
+        "INNN 飯店門口上車",
+        "【INNN 專車飯店門口上車】車輛預計於此時段抵達逸之彩門口接人；當日 06:10 App 預計推播確切車牌與司機資訊。司機協助裝上支線小巴，前往中轉站換乘主線大巴。以當日通知為準。",
+        [
+          [
+            "大阪逸之彩飯店日本橋",
+            "https://maps.google.com/?q=Osaka+Hinode+Hotel+Nipponbashi"
+          ]
+        ],
+        "交通"
+      ],
+      [
+        "12:00",
+        "抵達關西機場 T2",
+        "【直達機場】接送大巴預計抵達關西國際機場第二航廈（T2）門口，司機協助卸下行李；時間以交通狀況及通知為準。",
+        [
+          [
+            "關西國際機場 第二航廈",
+            "https://maps.google.com/?q=KIX+Terminal+2"
+          ]
+        ],
+        "交通"
+      ],
+      [
+        "12:00 – 14:30",
+        "樂桃報到・託運・T2 免稅店",
+        "前往樂桃航空櫃檯托運行李、領取登機證，安檢後逛 T2 免稅店採買最後的伴手禮。請預留足夠時間完成新制免稅商品海關確認。",
+        [
+          [
+            "樂桃航空 關西機場 T2 報到櫃檯",
+            "https://maps.google.com/?q=Peach+Aviation+KIX+Terminal+2"
+          ]
+        ],
+        "航班"
+      ],
+      [
+        "15:25 ➜ 17:55",
+        "MM027 起飛返台",
+        "搭乘樂桃航空 MM027 起飛返台，抵達桃園機場第一航廈，滿載戰利品平安歸國。",
+        [
+          [
+            "桃園國際機場 第一航廈",
+            "https://maps.google.com/?q=Taoyuan+International+Airport+Terminal+1"
+          ]
+        ],
+        "航班"
+      ]
+    ]
+  }
 ];
 const STORE = 'osaka-journal-2026-v1';
 const readStorage = (key, fallback) => { try { const data = localStorage.getItem(STORE + '-' + key); return data === null ? fallback : JSON.parse(data); } catch { return fallback; } };
@@ -54,7 +533,8 @@ const saveStorage = (key, value) => { try { localStorage.setItem(STORE + '-' + k
 const todayJapan = () => new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 let selectedDay = DAYS.findIndex(day => day.date === todayJapan());
 if (selectedDay < 0) selectedDay = 0;
-let completed = readStorage('completed', {});
+// V4 行程重新排序，完成紀錄使用新鍵，避免將 V3 勾選誤套到不同景點。
+let completed = readStorage('completed-v4', {});
 let shopping = readStorage('shopping', []);
 if (!completed || typeof completed !== 'object' || Array.isArray(completed)) completed = {};
 if (!Array.isArray(shopping)) shopping = [];
@@ -87,7 +567,7 @@ function drawDay() {
  $('timeline').querySelectorAll('[data-check]').forEach(el=>el.addEventListener('change',()=>{
    const key=`${selectedDay}-${el.dataset.check}`;
    if(el.checked) completed[key]=true; else delete completed[key];
-   saveStorage('completed',completed);
+   saveStorage('completed-v4',completed);
    el.closest('.timeline-item').classList.toggle('is-complete',el.checked);
    drawProgress();
  }));
@@ -119,20 +599,49 @@ if (luggageUnits && luggageTotal) {
 }
 
 
-// ===== 商家優惠券（localStorage，含編輯與刪除） =====
+// ===== 商家優惠券：隨網站部署的圖片 + 瀏覽器自訂文字優惠 =====
+// 將券圖放進 assets/coupons，並在 coupons.json 登記商家／優惠內容／檔名。
+// 不需後端；GitHub Pages 可直接展示圖片，點擊縮圖放大或開新分頁供掃碼。
 let coupons = readStorage('coupons', []);
 if (!Array.isArray(coupons)) coupons = [];
+let bundledCoupons = [];
 let editingCoupon = null;
 function safeCouponUrl(value) {
-  try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : ''; }
+  try { const u = new URL(value, window.location.href); return ['https:', 'http:'].includes(u.protocol) ? u.href : ''; }
   catch { return ''; }
 }
+function couponImagePath(file) {
+  // 防止含 ../ 的檔名跳脫券圖資料夾
+  return typeof file === 'string' && /^[\w\-.]+\.(png|jpe?g|webp|gif|svg)$/i.test(file) && !file.startsWith('.')
+    ? `assets/coupons/${encodeURIComponent(file)}` : '';
+}
+const couponDialog = $('couponDialog');
+function openCouponImage(src, title) {
+  $('couponLargeImage').src = src;
+  $('couponLargeImage').alt = title + ' 優惠券條碼';
+  $('couponDialogTitle').textContent = title;
+  $('couponOpenOriginal').href = src;
+  if (typeof couponDialog.showModal === 'function') couponDialog.showModal();
+  else window.open(src, '_blank', 'noopener,noreferrer');
+}
+$('couponClose').addEventListener('click', () => couponDialog.close());
+couponDialog.addEventListener('click', (e) => { if (e.target === couponDialog) couponDialog.close(); });
 function drawCoupons() {
-  $('couponCount').textContent = `${coupons.length} 張`;
-  $('couponList').innerHTML = coupons.length ? coupons.map(item => {
+  $('couponCount').textContent = `${bundledCoupons.length + coupons.length} 張`;
+  const gallery = bundledCoupons.map((item,i) => {
+    const image = couponImagePath(item.image);
+    if (!image) return '';
+    return `<article class="coupon-item coupon-with-image"><button type="button" class="coupon-thumbnail" data-coupon-image="${i}" aria-label="放大 ${escapeText(item.shop)} 優惠券"><img src="${escapeText(image)}" alt="${escapeText(item.shop)} 優惠券縮圖" loading="lazy"></button><div class="coupon-details"><button type="button" class="coupon-name-button" data-coupon-image="${i}">${escapeText(item.shop)}</button><p>${escapeText(item.offer || '請於使用前確認優惠條件')}</p>${item.expiry ? `<small>期限：${escapeText(item.expiry)}</small>` : ''}</div><div class="coupon-actions"><button type="button" data-coupon-image="${i}">放大條碼 ⤢</button><a href="${escapeText(image)}" target="_blank" rel="noopener noreferrer">新分頁開啟 ↗</a></div></article>`;
+  }).join('');
+  const custom = coupons.map(item => {
     const url = safeCouponUrl(item.url || '');
     return `<article class="coupon-item"><div class="coupon-details"><strong>${escapeText(item.shop)}</strong><p>${escapeText(item.offer)}</p>${item.expiry ? `<small>期限：${escapeText(item.expiry)}</small>` : ''}</div><div class="coupon-actions">${url ? `<a href="${escapeText(url)}" target="_blank" rel="noopener noreferrer">開啟優惠 ↗</a>` : ''}<button type="button" data-coupon-edit="${escapeText(item.id)}">編輯</button><button type="button" data-coupon-remove="${escapeText(item.id)}">刪除</button></div></article>`;
-  }).join('') : '<p class="empty-shopping">優惠券待整理。<br>先新增商家與優惠資料，之後可隨時修改 ♡</p>';
+  }).join('');
+  $('couponList').innerHTML = gallery + custom || '<p class="empty-shopping">優惠券圖片待整理。<br>之後把圖片放進 assets/coupons 並登記 coupons.json，就會顯示縮圖 ♡</p>';
+  $('couponList').querySelectorAll('[data-coupon-image]').forEach(btn => btn.addEventListener('click', () => {
+    const item = bundledCoupons[Number(btn.dataset.couponImage)];
+    if (item) openCouponImage(couponImagePath(item.image), item.shop);
+  }));
   $('couponList').querySelectorAll('[data-coupon-edit]').forEach(btn => btn.addEventListener('click', () => {
     const item = coupons.find(x => x.id === btn.dataset.couponEdit); if (!item) return;
     editingCoupon = item.id; $('couponShop').value = item.shop; $('couponOffer').value = item.offer;
@@ -158,6 +667,10 @@ $('couponForm').addEventListener('submit', event => {
   else coupons.push({id:`coupon-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,...value});
   saveStorage('coupons',coupons); resetCouponForm(); drawCoupons();
 });
+// 非同步載入網站內附優惠圖片清單；無圖片時維持空白佔位，不會影響其他功能。
+fetch('assets/coupons/coupons.json').then(r => { if (!r.ok) throw new Error('優惠資料尚未建立'); return r.json(); })
+  .then(data => { bundledCoupons = Array.isArray(data) ? data.filter(x => x && typeof x.shop === 'string' && couponImagePath(x.image)) : []; drawCoupons(); })
+  .catch(() => drawCoupons());
 
 // ===== 行前準備清單 =====
 const PACKING_DEFAULTS = [
